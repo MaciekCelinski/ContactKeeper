@@ -1,5 +1,14 @@
 const express = require("express");
 
+// import controllers
+const { verifyLogin, verifyUserId } = require("../controllers/authController");
+
+// validator
+const { check } = require("express-validator");
+
+// import auth middleware
+const auth = require("../middleware/auth");
+
 // init router
 const router = express.Router();
 
@@ -9,16 +18,19 @@ const router = express.Router();
 // @desc    Get logged in user
 // @public  Private
 
-router.get("/", (req, res) => {
-	res.send("Get logged in user");
-});
+router.get("/", auth, verifyUserId);
 
 // @route   POST api/auth
 // @desc    Auth user & get token
 // @public  Private
 
-router.post("/", (req, res) => {
-	res.send("Log in user");
-});
+router.post(
+	"/",
+	[
+		check("email", "Please include a valid email").isEmail(),
+		check("password", "Password is required").exists(),
+	],
+	verifyLogin
+);
 
 module.exports = router;

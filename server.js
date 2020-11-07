@@ -1,5 +1,5 @@
 const express = require("express");
-const connectDB = require('./config/db')
+const connectDB = require("./config/db");
 
 // routes
 const usersRoutes = require("./routes/users");
@@ -7,10 +7,13 @@ const authRoutes = require("./routes/auth");
 const contactsRoutes = require("./routes/contacts");
 
 // connect database
-connectDB()
+connectDB();
 
 // init app
 const app = express();
+
+// middleware
+app.use(express.json({ extended: false }));
 
 // manage routes
 app.get("/", (req, res) => {
