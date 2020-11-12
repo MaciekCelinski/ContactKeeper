@@ -3,9 +3,6 @@ const express = require("express");
 // controllers
 const { getUsers, postUser } = require("../controllers/usersController");
 
-// import User model
-const User = require("../models/User");
-
 // import express validator
 const { check } = require("express-validator");
 

@@ -8,6 +8,8 @@ const config = require("config");
 // validator
 const { validationResult } = require("express-validator");
 
+// MANAGE ROUTES
+
 // POST
 
 // login user

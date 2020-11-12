@@ -1,0 +1,4 @@
+{
+	"mongoURI": "mongodb+srv://maciek:cisowianka86@cluster0.o6sja.mongodb.net/test?retryWrites=true&w=majority",
+	"jwtSecret": "19MaciekJestSuper86"
+}
